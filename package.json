@@ -7,7 +7,7 @@
     "dev": "babel ./scripts/*.js --watch -d build",
     "http": "http-server",
     "start": "babel ./scripts/*.js -d build && http-server",
-    "test": ""
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
