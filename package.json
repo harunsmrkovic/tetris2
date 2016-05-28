@@ -1,0 +1,19 @@
+{
+  "name": "tetris2",
+  "version": "1.0.0",
+  "description": "JS based tetris game",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harunsmrkovic/tetris2.git"
+  },
+  "author": "Harun Smrkovic (harunsmrkovic@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harunsmrkovic/tetris2/issues"
+  },
+  "homepage": "https://github.com/harunsmrkovic/tetris2#readme"
+}
