@@ -7,8 +7,8 @@ const Draw = ({ canvas, canvasWidth, canvasHeight, blockWidth, blockHeight }) =>
 
     if(debug){
       canvas.font = "10px Arial";
-      canvas.fillText(`${(x)}`, x+2, y + 10)
-      canvas.fillText(`${(y)}`, x+2, y + 20)
+      canvas.fillText(`${(x / blockWidth)}`, x+2, y + 10)
+      canvas.fillText(`${(y / blockHeight)}`, x+2, y + 20)
     }
   }
 
