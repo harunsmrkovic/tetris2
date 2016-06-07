@@ -1,6 +1,6 @@
 const render = (draw) => {
 
-  const outlines = (board) => {
+  const outlines = (action, { board }) => {
     _.each(_.flatten(board), ({ x, y }) => draw.outline(x, y))
   }
 

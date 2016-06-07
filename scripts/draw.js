@@ -4,21 +4,23 @@ const Draw = ({ canvasWidth, canvasHeight, blockWidth, blockHeight }) => {
 
   const debug = true;
 
+  const getX = (x) => x * blockWidth
+  const getY = (y) => y * blockHeight
+
   const outline = (x, y, color = '#dddddd') => {
     canvas.strokeStyle = color
-    canvas.strokeRect(x, y, 50, 50)
+    canvas.strokeRect(getX(x), getY(y), blockWidth, blockHeight)
 
     if(debug){
       canvas.font = "10px Arial";
-      canvas.fillText(`${(x / blockWidth)}`, x+2, y + 10)
-      canvas.fillText(`${(y / blockHeight)}`, x+2, y + 20)
+      canvas.fillText(`${(x)}`, getX(x) + 2, getY(y) + 10)
+      canvas.fillText(`${(y)}`, getX(x) + 2, getY(y) + 20)
     }
   }
 
   const rect = (x, y, color = '200, 0, 0') => {
-    if(debug) console.info('Draw rectangle @', x, y)
     canvas.fillStyle = 'rgb(' + color + ')'
-    canvas.fillRect(x * blockWidth, y * blockHeight, blockWidth, blockHeight)
+    canvas.fillRect(getX(x), getY(y), blockWidth, blockHeight)
   }
 
   const clearCanvas = () => {
