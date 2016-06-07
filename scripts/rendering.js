@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 const render = (draw) => {
 
   const outlines = (action, { board }) => {
@@ -5,10 +7,12 @@ const render = (draw) => {
   }
 
   const board = (action, { board }) => {
-    console.info('render board', board, draw)
     _.each(_.flatten(board), ({ block, x, y }) => {
       if(block.fill){
         draw.rect(x, y, (!block.color) ? '0, 0, 0' : block.color)
+      }
+      else {
+        draw.rect(x, y, '255, 255, 255')
       }
     })
   }

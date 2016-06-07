@@ -19,8 +19,9 @@ import config from './config'
   const render = rendering(draw)
 
   // subscribe rendering
-  subscribe(render.outlines)
+
   subscribe(render.board)
+  subscribe(render.outlines)
 
   // start
   dispatch({ type: 'INIT', boardWidth: board.width, boardHeight: board.height })
