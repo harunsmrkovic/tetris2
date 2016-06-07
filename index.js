@@ -4,9 +4,13 @@ import state from './scripts/state'
 import rendering from './scripts/rendering'
 import drawEngine from './scripts/draw'
 
+import config from './config'
+
 (function(){
+  const { board, block } = config
+
   // draw instance
-  const draw = drawEngine({ canvasWidth: 600, canvasHeight: 800, blockWidth: 25, blockHeight: 25 })
+  const draw = drawEngine({ canvasWidth: (board.width * block.width), canvasHeight: (board.height * block.height), blockWidth: block.width, blockHeight: block.height })
 
   // state for the game
   const { dispatch, subscribe, getState } = state()
@@ -19,6 +23,6 @@ import drawEngine from './scripts/draw'
   subscribe(render.outlines)
 
   // start
-  dispatch({ type: 'INIT', boardWidth: 24, boardHeight: 32 })
+  dispatch({ type: 'INIT', boardWidth: board.width, boardHeight: board.height })
 
 }())
