@@ -1,10 +1,24 @@
-import canvas from './scripts/canvasInit'
-import Draw from './scripts/draw'
-import Game from './scripts/game'
+import _ from 'lodash'
 
+import state from './scripts/state'
+import rendering from './scripts/rendering'
+import drawEngine from './scripts/draw'
 
 (function(){
-  const tetris = Game({ canvas, canvasWidth: 600, canvasHeight: 800 })
+  // draw instance
+  const draw = drawEngine({ canvasWidth: 600, canvasHeight: 800, blockWidth: 25, blockHeight: 25 })
 
-  tetris.start()
+  // state for the game
+  const { dispatch, subscribe, getState } = state()
+
+  // rendering callbacks
+  const render = rendering(draw)
+
+  // subscribe rendering
+  subscribe(render.board)
+  subscribe(render.outlines)
+
+  // start
+  dispatch({ type: 'INIT', boardWidth: 24, boardHeight: 32 })
+
 }())

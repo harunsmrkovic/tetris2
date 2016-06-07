@@ -1,8 +1,11 @@
-const Draw = ({ canvas, canvasWidth, canvasHeight, blockWidth, blockHeight }) => {
+const Draw = ({ canvasWidth, canvasHeight, blockWidth, blockHeight }) => {
+
+  const canvas = document.getElementById('game').getContext('2d')
 
   const debug = true;
 
-  const outline = (x, y) => {
+  const outline = (x, y, color = '#dddddd') => {
+    canvas.strokeStyle = color
     canvas.strokeRect(x, y, 50, 50)
 
     if(debug){
@@ -13,8 +16,9 @@ const Draw = ({ canvas, canvasWidth, canvasHeight, blockWidth, blockHeight }) =>
   }
 
   const rect = (x, y, color = '200, 0, 0') => {
+    if(debug) console.info('Draw rectangle @', x, y)
     canvas.fillStyle = 'rgb(' + color + ')'
-    canvas.fillRect(x, y, blockWidth, blockHeight)
+    canvas.fillRect(x * blockWidth, y * blockHeight, blockWidth, blockHeight)
   }
 
   const clearCanvas = () => {
